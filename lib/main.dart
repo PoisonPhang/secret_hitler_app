@@ -30,7 +30,6 @@ class MyHomePage extends StatefulWidget {
 
 /// State of HomePage widget.
 class _MyHomePageState extends State<MyHomePage> {
-
   final _formKey = GlobalKey<FormState>();
   final _gameData = Game();
   final _player = Player();

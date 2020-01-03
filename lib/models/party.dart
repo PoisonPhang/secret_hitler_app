@@ -1,4 +1,1 @@
-enum Party {
-  Liberal,
-  Facist
-}
+enum Party { Liberal, Facist }
