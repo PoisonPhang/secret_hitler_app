@@ -85,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           }
                         },
                         color: Colors.yellow,
+                        splashColor: Colors.redAccent,
                         child: Text('Enter The Political Landscape'),
                       ),
                     )
