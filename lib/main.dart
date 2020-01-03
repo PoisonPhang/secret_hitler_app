@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:secret_hitler_app/models/game.dart';
+import 'package:secret_hitler_app/models/player.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,6 +32,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   final _formKey = GlobalKey<FormState>();
+  final _gameData = Game();
+  final _player = Player();
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         }
                         return null;
                       },
+                      onSaved: (val) => setState(() => _gameData.gameCode = val),
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
@@ -75,13 +80,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         }
                         return null;
                       },
+                      onSaved: (val) => setState(() => _player.username = val),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
                       child: RaisedButton(
                         onPressed: () {
-                          if (_formKey.currentState.validate()) {
-                            // kill james
+                          final form = _formKey.currentState;
+                          if (form.validate()) {
+                            form.save();
                           }
                         },
                         color: Colors.yellow,
