@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:secret_hitler_app/gameHome.dart';
 import 'package:secret_hitler_app/models/game.dart';
-import 'package:secret_hitler_app/models/player.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,7 +32,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final _formKey = GlobalKey<FormState>();
   final _gameData = Game();
-  final _player = Player();
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +63,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         }
                         return null;
                       },
-                      onSaved: (val) => setState(() => _gameData.gameCode = val),
+                      onSaved: (val) =>
+                          setState(() => _gameData.gameCode = val),
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
@@ -79,7 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         }
                         return null;
                       },
-                      onSaved: (val) => setState(() => _player.username = val),
+                      onSaved: (val) =>
+                          setState(() => _gameData.player.username = val),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -88,6 +89,13 @@ class _MyHomePageState extends State<MyHomePage> {
                           final form = _formKey.currentState;
                           if (form.validate()) {
                             form.save();
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PlayerData(),
+                                    settings: RouteSettings(
+                                      arguments: _gameData,
+                                    )));
                           }
                         },
                         color: Colors.yellow,

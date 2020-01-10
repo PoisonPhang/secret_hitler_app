@@ -4,4 +4,6 @@ class Player {
   String username = '';
   Party faction = Party.Liberal;
   bool isHitler = false;
+  bool isDead = false;
+  
 }
