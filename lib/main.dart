@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           final form = _formKey.currentState;
                           if (form.validate()) {
                             form.save();
-                            Navigator.push(
+                            Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => PlayerData(),

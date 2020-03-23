@@ -55,6 +55,7 @@ class _PlayerDataState extends State<PlayerData> {
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
